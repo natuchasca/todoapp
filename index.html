@@ -9,19 +9,24 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<h3>To DO App</h3>
+		<div class="fixed">
+			<div class="row head">
+				<div class="col-md-12 text-center">
+					<h3>ToDO App</h3>
+				</div>
+			</div>
+			<div class="row text-area">
+				<div class="col-md-12">
+					<textarea name="" id="inputtarea" cols="30" rows="5" placeholder="Añade tu nueva tarea"></textarea>
+					<button class="btn btn-primary" href=""  id="boton">
+						<i class="fa fa-plus" aria-hidden="true"></i> 
+						Añadir tarea
+					</button>
+				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<textarea name="" id="tarea" cols="30" rows="5" placeholder="Añade tu nueva tarea"></textarea>
-				<a class="btn btn-primary" href="">
-					<i class="fa fa-plus" aria-hidden="true" onclick="agregarTarea()"></i> Añadir tarea</a>
-				</a>
-			</div>
-		</div>
+	</div>
+	<div class="container">
 		<div class="row">
 			<hr>
 			<div id="tareas">
