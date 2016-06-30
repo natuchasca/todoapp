@@ -14,8 +14,18 @@ document.getElementById("boton").addEventListener("click",
 	var tarea = input.value;
 	contenido = document.createTextNode(tarea);
 
+	// Agrego trash
+	var trash = document.createElement("i");
+	trash.setAttribute("class", "fa fa-trash fa-2x pull-right");
+	nueva.appendChild(trash);
+
+	// Agrego Checkbox
+	var checkbox = document.createElement("input");
+	checkbox.setAttribute("type", "checkbox");
+	nueva.appendChild(checkbox);
+
 		if (tarea == "") {
-			alert("Ingrese tarea a realizar");
+			alert("Debe ingresar una tarea a realizar");
 		}
 		else {
 			nueva.appendChild(contenido);
@@ -27,18 +37,17 @@ document.getElementById("boton").addEventListener("click",
 
 
 
+/* Funciones para checkbox y delete icon */
+
+
 /*
 
-	var trash = document.createElement("i");
-	trash.setAttribute("class", "fa fa-trash");
 	trash.addEventListener("click", 
 		function (){
-			box.innerHTML = "";
+			box.removeChild(nueva);
 		}
 	);
 
-	var checkbox = document.createElement("input");
-	checkbox.setAttribute("type", "checkbox");
-	checkbox.appendChild(box);
+	
 
 */
