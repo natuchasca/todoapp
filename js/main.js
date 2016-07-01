@@ -3,26 +3,28 @@ y enviarlos a un div con texto en la parte inferior de
 la pagina al apretar el boton enviar
 y evitar que se envie tarea en blanco (valor) */
 
-
 document.getElementById("boton").addEventListener("click",
 	function () {
-	var box = document.getElementById("tareas");
+	box = document.getElementById("tareas");
 	nueva = document.createElement("div");
 	nueva.setAttribute("class", "cajastarea");
 
-	var input = document.getElementById("inputtarea");
-	var tarea = input.value;
+	input = document.getElementById("inputtarea");
+	tarea = input.value;
 	contenido = document.createTextNode(tarea);
 
 	// Agrego trash
-	var trash = document.createElement("i");
+	trash = document.createElement("i");
 	trash.setAttribute("class", "fa fa-trash fa-2x pull-right");
+	trash.setAttribute("Onclick", "borrar()");
 	nueva.appendChild(trash);
-
+	
 	// Agrego Checkbox
-	var checkbox = document.createElement("input");
+	checkbox = document.createElement("input");
 	checkbox.setAttribute("type", "checkbox");
+	checkbox.setAttribute("Onclick", "tachado()");
 	nueva.appendChild(checkbox);
+	
 
 		if (tarea == "") {
 			alert("Debe ingresar una tarea a realizar");
@@ -32,22 +34,27 @@ document.getElementById("boton").addEventListener("click",
 			box.appendChild(nueva);
 		}
 	}
+
 );
 
 
-
-
 /* Funciones para checkbox y delete icon */
+	function borrar () {
+		box.removeChild(nueva); 	
+	};
 
-
+	function tachado () {
+		if(checkbox.checked) {
+		contenido.setAttribute("class", "tachado");
+		}
+	};
+	
 /*
-
-	trash.addEventListener("click", 
+	
+document.getElementsByTagName("i").addEventListener("click", 
 		function (){
-			box.removeChild(nueva);
+			nueva.removeChild(box);
 		}
 	);
-
-	
-
+borrar = 
 */
