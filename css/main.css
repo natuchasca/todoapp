@@ -29,7 +29,8 @@ body {
   .fixed h1 {
     font-size: 50px;
     font-weight: 300;
-    color: white; }
+    color: white;
+    text-shadow: 4px 3px 0 rgba(255, 44, 72, 0.71); }
     .fixed h1 span {
       font-weight: 600; }
   .fixed textarea {
