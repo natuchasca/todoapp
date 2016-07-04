@@ -5,7 +5,7 @@ y evitar que se envie tarea en blanco (valor) */
 
 document.getElementById("boton").addEventListener("click",
 	function () {
-	// Creo texto del input
+	// Recojo valor con texto del input y creo tarea
 	var tarea = document.getElementById("inputtarea").value;
 	var nuevaTarea = document.createElement("p");
 	var contenido = document.createTextNode(tarea);
@@ -17,21 +17,21 @@ document.getElementById("boton").addEventListener("click",
 	var nueva = document.createElement("div");
 	nueva.id=nueva;
 	nueva.setAttribute("class", "cajastarea");
-	/*nueva.innerHTML="<span onclick='borrar(this)'><i class='fa fa-trash fa-lg pull-right'></i></span>"+"<input type='checkbox' class='pull-left'>"+tarea;
-*/
-	// Creo trash y evento para borrar
+
+	// Creo trash y evento para borrar con confirmacion
 	trash = document.createElement("i");
-	trash.setAttribute("class", "fa fa-trash fa-lg pull-right mg-top");
+	trash.setAttribute("class", "fa fa-trash fa-lg pull-right mg-top toquedecolor");
 	trash.addEventListener("click", 
 		function (){
-	    confirm("borrarás esta tarea");
 	    var borrar = document.getElementById("id");
 	    box = nueva.parentNode;
-	    box.removeChild(nueva);
+	    if (confirm("¿borrar esta tarea?")){
+	        box.removeChild(nueva);
+	    } 
 	  }
 	);
 	
-	// Creo Checkbox y cambio de texto
+	// Creo Checkbox y evento para cambio de texto
 	checkbox = document.createElement("input");
 	checkbox.setAttribute("type", "checkbox");
 	checkbox.addEventListener("click", 
@@ -44,7 +44,7 @@ document.getElementById("boton").addEventListener("click",
 		    }
 		}
 	);
-	
+	// Condición para no ingresar tarea vacia
 		if (tarea == "") {
 			alert("Debe ingresar una tarea a realizar");
 		}
@@ -53,63 +53,16 @@ document.getElementById("boton").addEventListener("click",
 			nueva.appendChild(nuevaTarea); // Agrego contenido de tarea
 			nueva.appendChild(trash); // Agrego trash icon
 			box.appendChild(nueva); // Agrego caja de tarea a listado de tareas
+			cleaninput(); // Llamo a la funcion clean para limpiar campo de texto
 		}
 	}
 
 );
 
 
-/*
-var inputBoxValue = getInputValue();
-	if (inputBoxValue !== "") {
-		doTarea(inputBoxValue);
-		clean();
+// Función para limpiar input de tareas al enviar
+var cleaninput = function() {
+	var tarea = document.getElementById("inputtarea");
+	tarea.value = "";
+	tarea.focus();
 }
-var clean = function() {
-	var inputBox = document.getElementById("inputBox");
-	inputBox.value = "";
-	inputBox.focus();
-}*/
-
-// Al hacer click se borrara caja contenedora de trash
-// al hacer click el texto del mismo contenedor se tachara 
- /*function find_tarea(contenido){
-    var listaDeTareas = document.getElementById("tareas");
-    for (var i=0; i<listaDeTareas.length; i++){
-      if(listaDeTareas[i].innerHTML==contenido)
-        return false;
-    }
-    return true;
-  }*/
-
-//Funciones para checkbox y delete icon 
-	
-
-/*	function tachado () {
-		if(checkbox.checked){
-			contenido.innerHTML=tarea.strike(); 
-		}else{
-			contenido.innerHTML=tarea;
-		}
-	};
-*/
-
-/* limpiar campo input */
-/*
-
-
-var clean = function() {
-	var inputBox = document.getElementById("inputBox");
-	inputBox.value = "";
-	inputBox.focus();
-}*/
-	
-/*
-	
-document.getElementsByTagName("i").addEventListener("click", 
-		function (){
-			nueva.removeChild(box);
-		}
-	);
-borrar = 
-*/
