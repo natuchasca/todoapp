@@ -5,49 +5,104 @@ y evitar que se envie tarea en blanco (valor) */
 
 document.getElementById("boton").addEventListener("click",
 	function () {
-	box = document.getElementById("tareas");
-	nueva = document.createElement("div");
+	// Creo texto del input
+	var tarea = document.getElementById("inputtarea").value;
+	var nuevaTarea = document.createElement("p");
+	var contenido = document.createTextNode(tarea);
+	nuevaTarea.innerHTML = tarea;
+	nuevaTarea.setAttribute("class", "cajatexto");
+
+	// Creo la caja de tarea
+	var box = document.getElementById("tareas");
+	var nueva = document.createElement("div");
+	nueva.id=nueva;
 	nueva.setAttribute("class", "cajastarea");
-
-	input = document.getElementById("inputtarea");
-	tarea = input.value;
-	contenido = document.createTextNode(tarea);
-
-	// Agrego trash
+	/*nueva.innerHTML="<span onclick='borrar(this)'><i class='fa fa-trash fa-lg pull-right'></i></span>"+"<input type='checkbox' class='pull-left'>"+tarea;
+*/
+	// Creo trash y evento para borrar
 	trash = document.createElement("i");
-	trash.setAttribute("class", "fa fa-trash fa-2x pull-right");
-	trash.setAttribute("Onclick", "borrar()");
-	nueva.appendChild(trash);
+	trash.setAttribute("class", "fa fa-trash fa-lg pull-right mg-top");
+	trash.addEventListener("click", 
+		function (){
+	    confirm("borrarás esta tarea");
+	    var borrar = document.getElementById("id");
+	    box = nueva.parentNode;
+	    box.removeChild(nueva);
+	  }
+	);
 	
-	// Agrego Checkbox
+	// Creo Checkbox y cambio de texto
 	checkbox = document.createElement("input");
 	checkbox.setAttribute("type", "checkbox");
-	checkbox.setAttribute("Onclick", "tachado()");
-	nueva.appendChild(checkbox);
+	checkbox.addEventListener("click", 
+		function () {
+			var tachar = document.getElementById("id");
+			if(this.checked){
+		      nuevaTarea.innerHTML = tarea.strike(); 
+		    }else{ 
+		      nuevaTarea.innerHTML = tarea;
+		    }
+		}
+	);
 	
-
 		if (tarea == "") {
 			alert("Debe ingresar una tarea a realizar");
 		}
 		else {
-			nueva.appendChild(contenido);
-			box.appendChild(nueva);
+			nueva.appendChild(checkbox); // Agrego checkbox
+			nueva.appendChild(nuevaTarea); // Agrego contenido de tarea
+			nueva.appendChild(trash); // Agrego trash icon
+			box.appendChild(nueva); // Agrego caja de tarea a listado de tareas
 		}
 	}
 
 );
 
 
-/* Funciones para checkbox y delete icon */
-	function borrar () {
-		box.removeChild(nueva); 	
-	};
+/*
+var inputBoxValue = getInputValue();
+	if (inputBoxValue !== "") {
+		doTarea(inputBoxValue);
+		clean();
+}
+var clean = function() {
+	var inputBox = document.getElementById("inputBox");
+	inputBox.value = "";
+	inputBox.focus();
+}*/
 
-	function tachado () {
-		if(checkbox.checked) {
-		contenido.setAttribute("class", "tachado");
+// Al hacer click se borrara caja contenedora de trash
+// al hacer click el texto del mismo contenedor se tachara 
+ /*function find_tarea(contenido){
+    var listaDeTareas = document.getElementById("tareas");
+    for (var i=0; i<listaDeTareas.length; i++){
+      if(listaDeTareas[i].innerHTML==contenido)
+        return false;
+    }
+    return true;
+  }*/
+
+//Funciones para checkbox y delete icon 
+	
+
+/*	function tachado () {
+		if(checkbox.checked){
+			contenido.innerHTML=tarea.strike(); 
+		}else{
+			contenido.innerHTML=tarea;
 		}
 	};
+*/
+
+/* limpiar campo input */
+/*
+
+
+var clean = function() {
+	var inputBox = document.getElementById("inputBox");
+	inputBox.value = "";
+	inputBox.focus();
+}*/
 	
 /*
 	

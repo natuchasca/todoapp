@@ -1,27 +1,44 @@
+* {
+	font-family: "Roboto";
+}
+
+.fixed {
+	position: fixed;
+	width: inherit;
+	height: 100%;
+	max-height: 300px;
+	background-color: white;
+}
+
 textarea {
 	border-radius: 5px;
 	border: 1px solid grey;
-	width: 100%;
-	padding: 5px;
+	width: 95%;
+	padding: 10px;
 	margin: 20px auto;
 }
 
 
 /* Tareas */
+#tareas {
+	margin-top: 330px;
+}
+
 .cajastarea {
 	width: 95%;
 	height: 100px;
 	border: 1px dashed black;
 	border-radius: 5px;
 	margin: 10px auto;
-	padding: 5px;
+	padding: 10px;
 }
 
-.margin {
-	margin-right: 20px;
+.cajatexto {
+	width: 70%;
+	margin: 0px 20px;
 	display: inline-block;
 }
 
-.tachado {
-	text-decoration:line-through;
+.mg-top {
+	margin-top: 10px;
 }
