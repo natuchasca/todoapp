@@ -39,16 +39,16 @@ body {
 	box-shadow: 0px 4px 7px 3px rgba(0,0,0,0.34);
 	h1 {
 		font-size: 50px;
-		font-weight: 300;
+		font-weight: 400;
 		color: white;
-		text-shadow: 4px 3px 0 rgba(255, 44, 72, 0.71);
+		text-shadow: 4px 3px 0 $colordark,9px 8px 0 rgba(36, 166, 166, 0.3);
 		span {
 			font-weight: 600;
 		}
 	}
 	textarea {
 		border-radius: 5px;
-		border: 1px solid $colorstrong;
+		border: 2px solid $colorsplash;
 		width: 95%;
 		max-width: 1100px;
 		padding: 10px;

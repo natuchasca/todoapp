@@ -25,7 +25,7 @@ document.getElementById("boton").addEventListener("click",
 		function (){
 	    var borrar = document.getElementById("id");
 	    box = nueva.parentNode;
-	    if (confirm("¿borrar esta tarea?")){
+	    if (confirm("¿Borrar esta tarea?")){
 	        box.removeChild(nueva);
 	    } 
 	  }
